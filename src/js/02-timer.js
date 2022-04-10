@@ -29,22 +29,29 @@ const options = {
         }
 };
 
-flatpickr(flatpickrEl, options);
+const flatPickr = flatpickr(flatpickrEl, options);
 
-buttonEl.addEventListener('click', () => {  
+buttonEl.addEventListener('click', onButtonClick);
+  
+function onButtonClick() {  
 
+   flatPickr.destroy();
+  buttonEl.disabled = true;
+  
   timerId = setInterval(() => {
     const dateNow = new Date();
     const inputValue = new Date(flatpickrEl.value);
     const dateSale = inputValue - dateNow;
     const time = convertMs(dateSale);
     updateClock(time);
+    
 
     if (dateSale < 1000) {
       clearInterval(timerId);
     }
   }, 1000);
-  });
+
+  };
 
 function updateClock({ days, hours, minutes, seconds }) {
   daysEl.textContent = days;

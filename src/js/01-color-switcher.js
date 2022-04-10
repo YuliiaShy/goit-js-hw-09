@@ -9,9 +9,10 @@ const buttonStop = document.querySelector('[data-stop]');
 let timerId = null;
 
 buttonStart.addEventListener('click', () => {
+  buttonStart.disabled = true;
   timerId = setInterval(() => {
       bodyEl.style.backgroundColor = getRandomHexColor();
-      buttonStart.disabled = true;
+      
   }, 1000);
 });
 
