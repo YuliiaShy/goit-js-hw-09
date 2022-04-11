@@ -35,7 +35,8 @@ buttonEl.addEventListener('click', onButtonClick);
   
 function onButtonClick() {  
 
-   flatPickr.destroy();
+  flatPickr.destroy();
+  flatpickrEl.disabled = true;
   buttonEl.disabled = true;
   
   timerId = setInterval(() => {
